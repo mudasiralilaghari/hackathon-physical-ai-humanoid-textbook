@@ -2,6 +2,8 @@
 
 Welcome to the comprehensive university-level textbook on **Physical AI & Humanoid Robotics**. This textbook bridges digital AI to real-world humanoid robotics, preparing students conceptually for ROS 2, simulation, and AI-robot systems.
 
+<!-- Deployment trigger -->
+
 ## Table of Contents
 
 ### [Module 0: Foundations of Physical AI](./docs/module-0/README.md)
