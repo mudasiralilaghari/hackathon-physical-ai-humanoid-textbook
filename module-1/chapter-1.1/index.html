@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-module-1/chapter-1.1" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.1.0">
+<title data-rh="true">Chapter 1.1: Introduction to ROS 2 Architecture | Physical AI &amp; Humanoid Robotics Textbook</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://mudasiralilaghari.github.io/hackathon-physical-ai-humanoid-textbook/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://mudasiralilaghari.github.io/hackathon-physical-ai-humanoid-textbook/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://mudasiralilaghari.github.io/hackathon-physical-ai-humanoid-textbook/module-1/chapter-1.1"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Chapter 1.1: Introduction to ROS 2 Architecture | Physical AI &amp; Humanoid Robotics Textbook"><meta data-rh="true" name="description" content="Introduction"><meta data-rh="true" property="og:description" content="Introduction"><link data-rh="true" rel="icon" href="/hackathon-physical-ai-humanoid-textbook/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://mudasiralilaghari.github.io/hackathon-physical-ai-humanoid-textbook/module-1/chapter-1.1"><link data-rh="true" rel="alternate" href="https://mudasiralilaghari.github.io/hackathon-physical-ai-humanoid-textbook/module-1/chapter-1.1" hreflang="en"><link data-rh="true" rel="alternate" href="https://mudasiralilaghari.github.io/hackathon-physical-ai-humanoid-textbook/module-1/chapter-1.1" hreflang="x-default"><link rel="stylesheet" href="/hackathon-physical-ai-humanoid-textbook/assets/css/styles.d6811fe7.css">
+<script src="/hackathon-physical-ai-humanoid-textbook/assets/js/runtime~main.e1b2299f.js" defer="defer"></script>
+<script src="/hackathon-physical-ai-humanoid-textbook/assets/js/main.bad3a74f.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/hackathon-physical-ai-humanoid-textbook/"><div class="navbar__logo"><img src="/hackathon-physical-ai-humanoid-textbook/img/logo.svg" alt="" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/hackathon-physical-ai-humanoid-textbook/img/logo.svg" alt="" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">🤖 Physical AI &amp; Humanoid Robotics Textbook</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/hackathon-physical-ai-humanoid-textbook/module-0/chapter-0.1">Textbook</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/mudasiralilaghari/hackathon-physical-ai-humanoid-textbook" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/hackathon-physical-ai-humanoid-textbook/module-0/chapter-0.1">Module 0: Foundations of Physical AI</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" aria-expanded="true" href="/hackathon-physical-ai-humanoid-textbook/module-1/chapter-1.1">Module 1: ROS 2 – The Robotic Nervous System</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/hackathon-physical-ai-humanoid-textbook/module-1/chapter-1.1">Chapter 1.1: Introduction to ROS 2 Architecture</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/hackathon-physical-ai-humanoid-textbook/module-1/chapter-1.2">Chapter 1.2: Nodes and Topics</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/hackathon-physical-ai-humanoid-textbook/module-1/chapter-1.3">Chapter 1.3: Services and Actions</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/hackathon-physical-ai-humanoid-textbook/module-1/chapter-1.4">Chapter 1.4: Parameters and Launch Systems</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/hackathon-physical-ai-humanoid-textbook/module-1/chapter-1.5">Chapter 1.5: Debugging and Monitoring ROS 2</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/hackathon-physical-ai-humanoid-textbook/module-2/chapter-2.1">Module 2: Digital Twins and Simulation</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/hackathon-physical-ai-humanoid-textbook/module-3/chapter-3.1">Module 3: NVIDIA Isaac – The AI Robot Brain</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/hackathon-physical-ai-humanoid-textbook/module-4/chapter-4.1">Module 4: Vision-Language-Action (VLA)</a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/hackathon-physical-ai-humanoid-textbook/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Module 1: ROS 2 – The Robotic Nervous System</span><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Chapter 1.1: Introduction to ROS 2 Architecture</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><h1>Chapter 1.1: Introduction to ROS 2 Architecture</h1>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introduction">Introduction<a href="#introduction" class="hash-link" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a></h2>
+<p>Welcome to ROS 2 (Robot Operating System 2), the standard middleware for robotics development. In this chapter, we&#x27;ll explore what problems ROS 2 solves, why robots need middleware, and how ROS 2 architecture enables complex robotic systems to work together seamlessly.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="what-problem-ros-2-solves">What Problem ROS 2 Solves<a href="#what-problem-ros-2-solves" class="hash-link" aria-label="Direct link to What Problem ROS 2 Solves" title="Direct link to What Problem ROS 2 Solves">​</a></h2>
+<p>Building complex robotic systems presents several challenges:</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="component-integration-challenge">Component Integration Challenge<a href="#component-integration-challenge" class="hash-link" aria-label="Direct link to Component Integration Challenge" title="Direct link to Component Integration Challenge">​</a></h3>
+<p>Without middleware like ROS 2, integrating different components of a robot would require:</p>
+<ul>
+<li>Direct communication between every pair of components</li>
+<li>Custom communication protocols for each connection</li>
+<li>Complex, hard-to-maintain code that&#x27;s difficult to modify</li>
+<li>Difficulty in testing individual components separately</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="the-need-for-standardized-communication">The Need for Standardized Communication<a href="#the-need-for-standardized-communication" class="hash-link" aria-label="Direct link to The Need for Standardized Communication" title="Direct link to The Need for Standardized Communication">​</a></h3>
+<p>Robotic systems typically include many different components:</p>
+<ul>
+<li>Perception systems (cameras, LiDAR, IMUs)</li>
+<li>Planning systems (path planning, task planning)</li>
+<li>Control systems (motor control, trajectory generation)</li>
+<li>User interfaces (command interfaces, visualization tools)</li>
+</ul>
+<p>These components need to communicate with each other, but they may:</p>
+<ul>
+<li>Be developed by different teams</li>
+<li>Use different programming languages</li>
+<li>Run on different computers</li>
+<li>Have different update rates and timing requirements</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="why-robots-need-middleware">Why Robots Need Middleware<a href="#why-robots-need-middleware" class="hash-link" aria-label="Direct link to Why Robots Need Middleware" title="Direct link to Why Robots Need Middleware">​</a></h2>
+<p>Middleware is software that sits between different applications and enables them to communicate. Robots need middleware for several key reasons:</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="decoupling-components">Decoupling Components<a href="#decoupling-components" class="hash-link" aria-label="Direct link to Decoupling Components" title="Direct link to Decoupling Components">​</a></h3>
+<p>Middleware allows components to:</p>
+<ul>
+<li>Develop independently without tight dependencies</li>
+<li>Be replaced or upgraded without affecting other components</li>
+<li>Be tested in isolation</li>
+<li>Be reused across different robotic platforms</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="language-and-platform-independence">Language and Platform Independence<a href="#language-and-platform-independence" class="hash-link" aria-label="Direct link to Language and Platform Independence" title="Direct link to Language and Platform Independence">​</a></h3>
+<p>ROS 2 enables:</p>
+<ul>
+<li>Components written in different programming languages (C++, Python, etc.) to communicate</li>
+<li>Components running on different operating systems to work together</li>
+<li>Components on different physical computers to interact seamlessly</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="standardized-interfaces">Standardized Interfaces<a href="#standardized-interfaces" class="hash-link" aria-label="Direct link to Standardized Interfaces" title="Direct link to Standardized Interfaces">​</a></h3>
+<p>Middleware provides:</p>
+<ul>
+<li>Common message formats that all components understand</li>
+<li>Standard ways to publish and subscribe to information</li>
+<li>Consistent tools for debugging and monitoring</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="core-ros-2-concepts">Core ROS 2 Concepts<a href="#core-ros-2-concepts" class="hash-link" aria-label="Direct link to Core ROS 2 Concepts" title="Direct link to Core ROS 2 Concepts">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="nodes">Nodes<a href="#nodes" class="hash-link" aria-label="Direct link to Nodes" title="Direct link to Nodes">​</a></h3>
+<p>Nodes are the basic execution units of a ROS 2 system. Think of them as individual programs or processes that perform specific functions:</p>
+<ul>
+<li><strong>Purpose</strong>: Each node typically performs one specific task or set of related tasks</li>
+<li><strong>Example nodes</strong>: Camera driver, path planner, motor controller, user interface</li>
+<li><strong>Independence</strong>: Nodes can run on the same or different computers</li>
+<li><strong>Communication</strong>: Nodes communicate with each other through topics, services, and actions</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="topics">Topics<a href="#topics" class="hash-link" aria-label="Direct link to Topics" title="Direct link to Topics">​</a></h3>
+<p>Topics are named channels through which nodes publish and subscribe to messages:</p>
+<ul>
+<li><strong>Publish-Subscribe Pattern</strong>: One node publishes data, multiple nodes can subscribe to receive it</li>
+<li><strong>Asynchronous</strong>: Publishers and subscribers don&#x27;t need to run simultaneously</li>
+<li><strong>Data Flow</strong>: Information flows from publishers to subscribers</li>
+<li><strong>Example</strong>: Camera node publishes images to a &quot;camera/image&quot; topic, multiple nodes can subscribe to process the images</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="services">Services<a href="#services" class="hash-link" aria-label="Direct link to Services" title="Direct link to Services">​</a></h3>
+<p>Services provide request-response communication between nodes:</p>
+<ul>
+<li><strong>Synchronous</strong>: The client waits for a response from the server</li>
+<li><strong>Request-Response</strong>: Client sends a request, server processes it and sends a response</li>
+<li><strong>Use Case</strong>: When you need to get specific information or perform a specific action on demand</li>
+<li><strong>Example</strong>: Requesting the robot&#x27;s current position or asking for a path to a destination</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="actions">Actions<a href="#actions" class="hash-link" aria-label="Direct link to Actions" title="Direct link to Actions">​</a></h3>
+<p>Actions handle long-running tasks with feedback:</p>
+<ul>
+<li><strong>Goal-Result-Feedback</strong>: Clients send goals, receive feedback during execution, and get results when complete</li>
+<li><strong>Cancel Capability</strong>: Actions can be canceled during execution</li>
+<li><strong>Use Case</strong>: Tasks that take significant time and need status updates</li>
+<li><strong>Example</strong>: Moving the robot to a distant location with periodic progress updates</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="ros-2-in-humanoid-robotics">ROS 2 in Humanoid Robotics<a href="#ros-2-in-humanoid-robotics" class="hash-link" aria-label="Direct link to ROS 2 in Humanoid Robotics" title="Direct link to ROS 2 in Humanoid Robotics">​</a></h2>
+<p>In humanoid robotics, ROS 2 architecture becomes even more critical because of the complexity of these systems:</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="multiple-subsystems">Multiple Subsystems<a href="#multiple-subsystems" class="hash-link" aria-label="Direct link to Multiple Subsystems" title="Direct link to Multiple Subsystems">​</a></h3>
+<p>Humanoid robots typically have:</p>
+<ul>
+<li><strong>Locomotion systems</strong>: Leg control, balance, walking algorithms</li>
+<li><strong>Manipulation systems</strong>: Arm control, hand coordination, grasping</li>
+<li><strong>Perception systems</strong>: Vision, spatial awareness, object recognition</li>
+<li><strong>Cognitive systems</strong>: Task planning, decision making, human interaction</li>
+<li><strong>Safety systems</strong>: Emergency stops, collision avoidance, stability monitoring</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="coordination-requirements">Coordination Requirements<a href="#coordination-requirements" class="hash-link" aria-label="Direct link to Coordination Requirements" title="Direct link to Coordination Requirements">​</a></h3>
+<p>These subsystems need to coordinate effectively:</p>
+<ul>
+<li>Perception data must inform planning decisions</li>
+<li>Planning outputs must be executed by control systems</li>
+<li>Safety systems must override other systems when necessary</li>
+<li>Human interaction systems must coordinate with all other systems</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="distributed-architecture">Distributed Architecture<a href="#distributed-architecture" class="hash-link" aria-label="Direct link to Distributed Architecture" title="Direct link to Distributed Architecture">​</a></h3>
+<p>Humanoid robots often use distributed computing:</p>
+<ul>
+<li>High-level planning on powerful computers</li>
+<li>Real-time control on specialized hardware</li>
+<li>Sensor processing on embedded systems</li>
+<li>ROS 2 enables these distributed components to work together</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="learning-summary">Learning Summary<a href="#learning-summary" class="hash-link" aria-label="Direct link to Learning Summary" title="Direct link to Learning Summary">​</a></h2>
+<p>In this chapter, we&#x27;ve covered:</p>
+<ol>
+<li>ROS 2 solves the component integration challenge in complex robotic systems</li>
+<li>Robots need middleware for decoupling, language independence, and standardized interfaces</li>
+<li>Core ROS 2 concepts include nodes, topics, services, and actions</li>
+<li>Each concept serves different communication patterns and use cases</li>
+<li>In humanoid robotics, ROS 2 enables coordination of multiple complex subsystems</li>
+<li>ROS 2 supports distributed architectures that are common in humanoid robots</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="self-assessment-questions">Self-Assessment Questions<a href="#self-assessment-questions" class="hash-link" aria-label="Direct link to Self-Assessment Questions" title="Direct link to Self-Assessment Questions">​</a></h2>
+<ol>
+<li>What is the main problem that ROS 2 solves in robotics development?</li>
+<li>Explain the difference between nodes, topics, services, and actions in ROS 2.</li>
+<li>Why is language independence important in ROS 2?</li>
+<li>What are the key subsystems in a humanoid robot that would use ROS 2?</li>
+<li>How does ROS 2 enable distributed computing in robotics?</li>
+</ol></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="theme-doc-footer-edit-meta-row row"><div class="col"><a href="https://github.com/mudasiralilaghari/hackathon-physical-ai-humanoid-textbook/tree/main/docs/module-1/chapter-1.1.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_vwxv"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/hackathon-physical-ai-humanoid-textbook/module-0/chapter-0.4"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Chapter 0.4: Course Roadmap &amp; Toolchain Overview</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/hackathon-physical-ai-humanoid-textbook/module-1/chapter-1.2"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Chapter 1.2: Nodes and Topics</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#introduction" class="table-of-contents__link toc-highlight">Introduction</a></li><li><a href="#what-problem-ros-2-solves" class="table-of-contents__link toc-highlight">What Problem ROS 2 Solves</a><ul><li><a href="#component-integration-challenge" class="table-of-contents__link toc-highlight">Component Integration Challenge</a></li><li><a href="#the-need-for-standardized-communication" class="table-of-contents__link toc-highlight">The Need for Standardized Communication</a></li></ul></li><li><a href="#why-robots-need-middleware" class="table-of-contents__link toc-highlight">Why Robots Need Middleware</a><ul><li><a href="#decoupling-components" class="table-of-contents__link toc-highlight">Decoupling Components</a></li><li><a href="#language-and-platform-independence" class="table-of-contents__link toc-highlight">Language and Platform Independence</a></li><li><a href="#standardized-interfaces" class="table-of-contents__link toc-highlight">Standardized Interfaces</a></li></ul></li><li><a href="#core-ros-2-concepts" class="table-of-contents__link toc-highlight">Core ROS 2 Concepts</a><ul><li><a href="#nodes" class="table-of-contents__link toc-highlight">Nodes</a></li><li><a href="#topics" class="table-of-contents__link toc-highlight">Topics</a></li><li><a href="#services" class="table-of-contents__link toc-highlight">Services</a></li><li><a href="#actions" class="table-of-contents__link toc-highlight">Actions</a></li></ul></li><li><a href="#ros-2-in-humanoid-robotics" class="table-of-contents__link toc-highlight">ROS 2 in Humanoid Robotics</a><ul><li><a href="#multiple-subsystems" class="table-of-contents__link toc-highlight">Multiple Subsystems</a></li><li><a href="#coordination-requirements" class="table-of-contents__link toc-highlight">Coordination Requirements</a></li><li><a href="#distributed-architecture" class="table-of-contents__link toc-highlight">Distributed Architecture</a></li></ul></li><li><a href="#learning-summary" class="table-of-contents__link toc-highlight">Learning Summary</a></li><li><a href="#self-assessment-questions" class="table-of-contents__link toc-highlight">Self-Assessment Questions</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Content</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/hackathon-physical-ai-humanoid-textbook/">Textbook Home</a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/facebook/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Physical AI & Humanoid Robotics Textbook build by Mudasir Ali. Copyright © 2025.</div></div></div></footer></div>
+</body>
+</html>

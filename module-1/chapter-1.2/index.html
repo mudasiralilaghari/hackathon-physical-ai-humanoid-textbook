@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-module-1/chapter-1.2" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.1.0">
+<title data-rh="true">Chapter 1.2: Nodes and Topics | Physical AI &amp; Humanoid Robotics Textbook</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://mudasiralilaghari.github.io/hackathon-physical-ai-humanoid-textbook/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://mudasiralilaghari.github.io/hackathon-physical-ai-humanoid-textbook/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://mudasiralilaghari.github.io/hackathon-physical-ai-humanoid-textbook/module-1/chapter-1.2"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Chapter 1.2: Nodes and Topics | Physical AI &amp; Humanoid Robotics Textbook"><meta data-rh="true" name="description" content="Introduction"><meta data-rh="true" property="og:description" content="Introduction"><link data-rh="true" rel="icon" href="/hackathon-physical-ai-humanoid-textbook/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://mudasiralilaghari.github.io/hackathon-physical-ai-humanoid-textbook/module-1/chapter-1.2"><link data-rh="true" rel="alternate" href="https://mudasiralilaghari.github.io/hackathon-physical-ai-humanoid-textbook/module-1/chapter-1.2" hreflang="en"><link data-rh="true" rel="alternate" href="https://mudasiralilaghari.github.io/hackathon-physical-ai-humanoid-textbook/module-1/chapter-1.2" hreflang="x-default"><link rel="stylesheet" href="/hackathon-physical-ai-humanoid-textbook/assets/css/styles.d6811fe7.css">
+<script src="/hackathon-physical-ai-humanoid-textbook/assets/js/runtime~main.e1b2299f.js" defer="defer"></script>
+<script src="/hackathon-physical-ai-humanoid-textbook/assets/js/main.bad3a74f.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/hackathon-physical-ai-humanoid-textbook/"><div class="navbar__logo"><img src="/hackathon-physical-ai-humanoid-textbook/img/logo.svg" alt="" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/hackathon-physical-ai-humanoid-textbook/img/logo.svg" alt="" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">🤖 Physical AI &amp; Humanoid Robotics Textbook</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/hackathon-physical-ai-humanoid-textbook/module-0/chapter-0.1">Textbook</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/mudasiralilaghari/hackathon-physical-ai-humanoid-textbook" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/hackathon-physical-ai-humanoid-textbook/module-0/chapter-0.1">Module 0: Foundations of Physical AI</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" aria-expanded="true" href="/hackathon-physical-ai-humanoid-textbook/module-1/chapter-1.1">Module 1: ROS 2 – The Robotic Nervous System</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/hackathon-physical-ai-humanoid-textbook/module-1/chapter-1.1">Chapter 1.1: Introduction to ROS 2 Architecture</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/hackathon-physical-ai-humanoid-textbook/module-1/chapter-1.2">Chapter 1.2: Nodes and Topics</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/hackathon-physical-ai-humanoid-textbook/module-1/chapter-1.3">Chapter 1.3: Services and Actions</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/hackathon-physical-ai-humanoid-textbook/module-1/chapter-1.4">Chapter 1.4: Parameters and Launch Systems</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/hackathon-physical-ai-humanoid-textbook/module-1/chapter-1.5">Chapter 1.5: Debugging and Monitoring ROS 2</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/hackathon-physical-ai-humanoid-textbook/module-2/chapter-2.1">Module 2: Digital Twins and Simulation</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/hackathon-physical-ai-humanoid-textbook/module-3/chapter-3.1">Module 3: NVIDIA Isaac – The AI Robot Brain</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/hackathon-physical-ai-humanoid-textbook/module-4/chapter-4.1">Module 4: Vision-Language-Action (VLA)</a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/hackathon-physical-ai-humanoid-textbook/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Module 1: ROS 2 – The Robotic Nervous System</span><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Chapter 1.2: Nodes and Topics</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><h1>Chapter 1.2: Nodes and Topics</h1>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introduction">Introduction<a href="#introduction" class="hash-link" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a></h2>
+<p>In this chapter, we&#x27;ll dive deeper into the fundamental building blocks of ROS 2: nodes and topics. These concepts form the backbone of ROS 2&#x27;s publish-subscribe communication pattern, which enables different parts of a robot to share information efficiently.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="what-is-a-node">What is a Node<a href="#what-is-a-node" class="hash-link" aria-label="Direct link to What is a Node" title="Direct link to What is a Node">​</a></h2>
+<p>A node is an executable process that works as part of a ROS 2 system. Think of it as a single program or module that performs a specific function within the larger robotic system.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="node-characteristics">Node Characteristics<a href="#node-characteristics" class="hash-link" aria-label="Direct link to Node Characteristics" title="Direct link to Node Characteristics">​</a></h3>
+<ul>
+<li><strong>Single Responsibility</strong>: Each node typically performs one specific task or set of closely related tasks</li>
+<li><strong>Process</strong>: A node runs as a separate process on the computer</li>
+<li><strong>Communication Interface</strong>: Nodes communicate with other nodes through ROS 2 topics, services, and actions</li>
+<li><strong>Lifecycle</strong>: Nodes can be started, stopped, and restarted independently</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="node-examples-in-robotics">Node Examples in Robotics<a href="#node-examples-in-robotics" class="hash-link" aria-label="Direct link to Node Examples in Robotics" title="Direct link to Node Examples in Robotics">​</a></h3>
+<ul>
+<li><strong>Sensor Driver Nodes</strong>: Interface with hardware sensors (camera, LiDAR, IMU)</li>
+<li><strong>Controller Nodes</strong>: Execute control algorithms (motor controllers, PID controllers)</li>
+<li><strong>Algorithm Nodes</strong>: Perform computational tasks (path planning, object detection)</li>
+<li><strong>Interface Nodes</strong>: Provide user interaction (command interfaces, visualization)</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="node-management">Node Management<a href="#node-management" class="hash-link" aria-label="Direct link to Node Management" title="Direct link to Node Management">​</a></h3>
+<p>ROS 2 provides tools to:</p>
+<ul>
+<li>Launch and manage nodes</li>
+<li>Monitor node status</li>
+<li>Handle node failures gracefully</li>
+<li>Coordinate node startup and shutdown</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="publishers-and-subscribers">Publishers and Subscribers<a href="#publishers-and-subscribers" class="hash-link" aria-label="Direct link to Publishers and Subscribers" title="Direct link to Publishers and Subscribers">​</a></h2>
+<p>The publish-subscribe pattern is the primary communication method in ROS 2 for continuous data streams.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="publishers">Publishers<a href="#publishers" class="hash-link" aria-label="Direct link to Publishers" title="Direct link to Publishers">​</a></h3>
+<p>A publisher node:</p>
+<ul>
+<li>Creates and sends messages to a specific topic</li>
+<li>Can send messages at a regular rate or based on events</li>
+<li>Doesn&#x27;t need to know which nodes are listening</li>
+<li>Can publish to multiple topics simultaneously</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="subscribers">Subscribers<a href="#subscribers" class="hash-link" aria-label="Direct link to Subscribers" title="Direct link to Subscribers">​</a></h3>
+<p>A subscriber node:</p>
+<ul>
+<li>Receives messages from a specific topic</li>
+<li>Processes incoming messages according to its function</li>
+<li>Doesn&#x27;t need to know which nodes are publishing</li>
+<li>Can subscribe to multiple topics simultaneously</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="message-flow">Message Flow<a href="#message-flow" class="hash-link" aria-label="Direct link to Message Flow" title="Direct link to Message Flow">​</a></h3>
+<p>The flow works as follows:</p>
+<ol>
+<li>Publisher creates a message containing data</li>
+<li>Message is sent to the topic</li>
+<li>ROS 2 middleware routes the message to all subscribers</li>
+<li>Each subscriber receives and processes the message independently</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="message-passing-concept">Message Passing Concept<a href="#message-passing-concept" class="hash-link" aria-label="Direct link to Message Passing Concept" title="Direct link to Message Passing Concept">​</a></h2>
+<p>Messages in ROS 2 are structured data packets that follow predefined formats called message types.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="message-types">Message Types<a href="#message-types" class="hash-link" aria-label="Direct link to Message Types" title="Direct link to Message Types">​</a></h3>
+<ul>
+<li><strong>Standard Types</strong>: ROS 2 provides common message types (images, sensor data, geometry, etc.)</li>
+<li><strong>Custom Types</strong>: Users can define their own message types for specific applications</li>
+<li><strong>Structure</strong>: Messages have a defined set of fields with specific data types</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="quality-of-service-qos">Quality of Service (QoS)<a href="#quality-of-service-qos" class="hash-link" aria-label="Direct link to Quality of Service (QoS)" title="Direct link to Quality of Service (QoS)">​</a></h3>
+<p>ROS 2 provides QoS settings to control message delivery:</p>
+<ul>
+<li><strong>Reliability</strong>: Ensure all messages are delivered or allow some to be dropped</li>
+<li><strong>Durability</strong>: Whether messages should be kept for late-joining subscribers</li>
+<li><strong>History</strong>: How many messages to keep in the queue</li>
+<li><strong>Rate</strong>: Desired frequency of message delivery</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="real-world-robot-examples">Real-World Robot Examples<a href="#real-world-robot-examples" class="hash-link" aria-label="Direct link to Real-World Robot Examples" title="Direct link to Real-World Robot Examples">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="mobile-robot-navigation">Mobile Robot Navigation<a href="#mobile-robot-navigation" class="hash-link" aria-label="Direct link to Mobile Robot Navigation" title="Direct link to Mobile Robot Navigation">​</a></h3>
+<p>Consider a mobile robot that needs to navigate through a building:</p>
+<ul>
+<li><strong>Laser Scanner Node</strong>: Publishes laser scan data to <code>/scan</code> topic</li>
+<li><strong>Localization Node</strong>: Subscribes to <code>/scan</code> and publishes position to <code>/amcl_pose</code></li>
+<li><strong>Path Planner Node</strong>: Subscribes to <code>/amcl_pose</code> and publishes path to <code>/global_plan</code></li>
+<li><strong>Controller Node</strong>: Subscribes to <code>/global_plan</code> and publishes velocity commands to <code>/cmd_vel</code></li>
+<li><strong>Robot Driver Node</strong>: Subscribes to <code>/cmd_vel</code> and controls the robot&#x27;s motors</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="humanoid-robot-perception">Humanoid Robot Perception<a href="#humanoid-robot-perception" class="hash-link" aria-label="Direct link to Humanoid Robot Perception" title="Direct link to Humanoid Robot Perception">​</a></h3>
+<p>In a humanoid robot system:</p>
+<ul>
+<li><strong>Camera Driver Node</strong>: Publishes images to <code>/camera/image_raw</code></li>
+<li><strong>Object Detection Node</strong>: Subscribes to <code>/camera/image_raw</code> and publishes detected objects to <code>/detected_objects</code></li>
+<li><strong>Tracking Node</strong>: Subscribes to <code>/detected_objects</code> and publishes tracked targets to <code>/tracked_targets</code></li>
+<li><strong>Behavior Node</strong>: Subscribes to <code>/tracked_targets</code> to decide robot actions</li>
+<li><strong>Visualization Node</strong>: Subscribes to multiple topics to display robot status</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="topic-architecture-patterns">Topic Architecture Patterns<a href="#topic-architecture-patterns" class="hash-link" aria-label="Direct link to Topic Architecture Patterns" title="Direct link to Topic Architecture Patterns">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="sensor-fusion">Sensor Fusion<a href="#sensor-fusion" class="hash-link" aria-label="Direct link to Sensor Fusion" title="Direct link to Sensor Fusion">​</a></h3>
+<p>Multiple sensors can publish to the same type of topic:</p>
+<ul>
+<li>Multiple cameras publishing to different image topics</li>
+<li>Multiple IMUs publishing to sensor fusion algorithms</li>
+<li>Different range sensors (LiDAR, ultrasonic) feeding into perception systems</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="hierarchical-processing">Hierarchical Processing<a href="#hierarchical-processing" class="hash-link" aria-label="Direct link to Hierarchical Processing" title="Direct link to Hierarchical Processing">​</a></h3>
+<p>Topics can form processing chains:</p>
+<ul>
+<li>Raw sensor data → filtered data → processed data → decisions</li>
+<li>Each level can have multiple nodes for redundancy or different processing approaches</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="broadcast-communication">Broadcast Communication<a href="#broadcast-communication" class="hash-link" aria-label="Direct link to Broadcast Communication" title="Direct link to Broadcast Communication">​</a></h3>
+<p>One node can broadcast to many:</p>
+<ul>
+<li>Robot state published to many monitoring nodes</li>
+<li>Commands sent to multiple subsystems simultaneously</li>
+<li>System status shared with multiple visualization tools</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="best-practices">Best Practices<a href="#best-practices" class="hash-link" aria-label="Direct link to Best Practices" title="Direct link to Best Practices">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="topic-naming-conventions">Topic Naming Conventions<a href="#topic-naming-conventions" class="hash-link" aria-label="Direct link to Topic Naming Conventions" title="Direct link to Topic Naming Conventions">​</a></h3>
+<ul>
+<li>Use descriptive names that indicate the data type and source</li>
+<li>Follow hierarchical naming (e.g., <code>/robot_name/sensor_type/data_type</code>)</li>
+<li>Use lowercase with underscores for multi-word topics</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="node-design-principles">Node Design Principles<a href="#node-design-principles" class="hash-link" aria-label="Direct link to Node Design Principles" title="Direct link to Node Design Principles">​</a></h3>
+<ul>
+<li><strong>Single Responsibility</strong>: Each node should do one thing well</li>
+<li><strong>Loose Coupling</strong>: Minimize dependencies between nodes</li>
+<li><strong>High Cohesion</strong>: Group related functionality within nodes</li>
+<li><strong>Clear Interfaces</strong>: Define clear input and output topics</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="performance-considerations">Performance Considerations<a href="#performance-considerations" class="hash-link" aria-label="Direct link to Performance Considerations" title="Direct link to Performance Considerations">​</a></h3>
+<ul>
+<li><strong>Message Rate</strong>: Balance information needs with computational load</li>
+<li><strong>Message Size</strong>: Consider bandwidth and processing requirements</li>
+<li><strong>Filtering</strong>: Subscribe only to necessary topics</li>
+<li><strong>Throttling</strong>: Limit processing rates when appropriate</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="learning-summary">Learning Summary<a href="#learning-summary" class="hash-link" aria-label="Direct link to Learning Summary" title="Direct link to Learning Summary">​</a></h2>
+<p>In this chapter, we&#x27;ve covered:</p>
+<ol>
+<li>Nodes are executable processes that perform specific functions in ROS 2</li>
+<li>Publishers send messages to topics, subscribers receive messages from topics</li>
+<li>The publish-subscribe pattern enables loose coupling between components</li>
+<li>Messages follow predefined types and can have Quality of Service settings</li>
+<li>Real-world robots use nodes and topics for sensor processing, control, and coordination</li>
+<li>Topic architecture patterns include sensor fusion, hierarchical processing, and broadcast communication</li>
+<li>Best practices include naming conventions, node design principles, and performance considerations</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="self-assessment-questions">Self-Assessment Questions<a href="#self-assessment-questions" class="hash-link" aria-label="Direct link to Self-Assessment Questions" title="Direct link to Self-Assessment Questions">​</a></h2>
+<ol>
+<li>What is the difference between a publisher and a subscriber in ROS 2?</li>
+<li>Explain the publish-subscribe communication pattern and its advantages.</li>
+<li>What are Quality of Service (QoS) settings and why are they important?</li>
+<li>Describe a simple robot system and identify the nodes and topics that would be involved.</li>
+<li>What are the key principles for designing effective nodes in ROS 2?</li>
+</ol></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="theme-doc-footer-edit-meta-row row"><div class="col"><a href="https://github.com/mudasiralilaghari/hackathon-physical-ai-humanoid-textbook/tree/main/docs/module-1/chapter-1.2.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_vwxv"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/hackathon-physical-ai-humanoid-textbook/module-1/chapter-1.1"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Chapter 1.1: Introduction to ROS 2 Architecture</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/hackathon-physical-ai-humanoid-textbook/module-1/chapter-1.3"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Chapter 1.3: Services and Actions</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#introduction" class="table-of-contents__link toc-highlight">Introduction</a></li><li><a href="#what-is-a-node" class="table-of-contents__link toc-highlight">What is a Node</a><ul><li><a href="#node-characteristics" class="table-of-contents__link toc-highlight">Node Characteristics</a></li><li><a href="#node-examples-in-robotics" class="table-of-contents__link toc-highlight">Node Examples in Robotics</a></li><li><a href="#node-management" class="table-of-contents__link toc-highlight">Node Management</a></li></ul></li><li><a href="#publishers-and-subscribers" class="table-of-contents__link toc-highlight">Publishers and Subscribers</a><ul><li><a href="#publishers" class="table-of-contents__link toc-highlight">Publishers</a></li><li><a href="#subscribers" class="table-of-contents__link toc-highlight">Subscribers</a></li><li><a href="#message-flow" class="table-of-contents__link toc-highlight">Message Flow</a></li></ul></li><li><a href="#message-passing-concept" class="table-of-contents__link toc-highlight">Message Passing Concept</a><ul><li><a href="#message-types" class="table-of-contents__link toc-highlight">Message Types</a></li><li><a href="#quality-of-service-qos" class="table-of-contents__link toc-highlight">Quality of Service (QoS)</a></li></ul></li><li><a href="#real-world-robot-examples" class="table-of-contents__link toc-highlight">Real-World Robot Examples</a><ul><li><a href="#mobile-robot-navigation" class="table-of-contents__link toc-highlight">Mobile Robot Navigation</a></li><li><a href="#humanoid-robot-perception" class="table-of-contents__link toc-highlight">Humanoid Robot Perception</a></li></ul></li><li><a href="#topic-architecture-patterns" class="table-of-contents__link toc-highlight">Topic Architecture Patterns</a><ul><li><a href="#sensor-fusion" class="table-of-contents__link toc-highlight">Sensor Fusion</a></li><li><a href="#hierarchical-processing" class="table-of-contents__link toc-highlight">Hierarchical Processing</a></li><li><a href="#broadcast-communication" class="table-of-contents__link toc-highlight">Broadcast Communication</a></li></ul></li><li><a href="#best-practices" class="table-of-contents__link toc-highlight">Best Practices</a><ul><li><a href="#topic-naming-conventions" class="table-of-contents__link toc-highlight">Topic Naming Conventions</a></li><li><a href="#node-design-principles" class="table-of-contents__link toc-highlight">Node Design Principles</a></li><li><a href="#performance-considerations" class="table-of-contents__link toc-highlight">Performance Considerations</a></li></ul></li><li><a href="#learning-summary" class="table-of-contents__link toc-highlight">Learning Summary</a></li><li><a href="#self-assessment-questions" class="table-of-contents__link toc-highlight">Self-Assessment Questions</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Content</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/hackathon-physical-ai-humanoid-textbook/">Textbook Home</a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/facebook/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Physical AI & Humanoid Robotics Textbook build by Mudasir Ali. Copyright © 2025.</div></div></div></footer></div>
+</body>
+</html>
