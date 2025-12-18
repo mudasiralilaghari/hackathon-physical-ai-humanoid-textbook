@@ -1,0 +1,64 @@
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/**
+ * Custom CSS for the Physical AI & Humanoid Robotics textbook
+ */
+
+:root {
+  --ifm-color-primary: #2563eb;
+  --ifm-color-primary-dark: #1d4ed8;
+  --ifm-color-primary-darker: #1a47c2;
+  --ifm-color-primary-darkest: #153a9e;
+  --ifm-color-primary-light: #3b82f6;
+  --ifm-color-primary-lighter: #60a5fa;
+  --ifm-color-primary-lightest: #93c5fd;
+  --ifm-code-font-size: 95%;
+}
+
+.docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.1);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}
+
+html[data-theme='dark'] .docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Custom styling for textbook content */
+.textbook-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Styling for learning objectives */
+.learning-objectives {
+  background-color: #f0f9ff;
+  border-left: 4px solid #3b82f6;
+  padding: 1rem;
+  margin: 1.5rem 0;
+}
+
+html[data-theme='dark'] .learning-objectives {
+  background-color: #1e3a8a;
+}
+
+/* Styling for self-assessment questions */
+.self-assessment {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+html[data-theme='dark'] .self-assessment {
+  background-color: #1e293b;
+  border-color: #334155;
+}

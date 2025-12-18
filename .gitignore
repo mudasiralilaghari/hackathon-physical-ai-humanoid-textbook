@@ -1,0 +1,9 @@
+node_modules/
+build/
+.docusaurus/
+.env
+.cache/
+coverage/
+dist/
+*.log
+.nyc_output/
