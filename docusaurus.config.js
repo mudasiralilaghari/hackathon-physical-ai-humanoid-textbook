@@ -84,8 +84,8 @@ const config = {
             title: 'Content',
             items: [
               {
-                label: 'Introduction',
-                to: '/docs/textbook',
+                label: 'Textbook Home',
+                to: '/',
               },
             ],
           },
