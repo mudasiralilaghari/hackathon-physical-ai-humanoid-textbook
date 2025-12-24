@@ -276,6 +276,13 @@ const config = {
       ],
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
+      // Additional metadata for the RAG integration
+      metadata: [
+        {
+          name: 'rag-integration',
+          content: 'enabled'
+        }
+      ],
       navbar: {
         title: '🤖 Physical AI & Humanoid Robotics Textbook',
         logo: {
