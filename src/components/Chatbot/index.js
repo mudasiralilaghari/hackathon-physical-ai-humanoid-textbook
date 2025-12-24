@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import './styles.css';
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -62,41 +61,154 @@ const Chatbot = () => {
   };
 
   return (
-    <div className="chatbotContainer">
+    <div
+      className="chatbotContainer"
+      style={{
+        position: 'fixed',
+        bottom: '20px',
+        right: '20px',
+        zIndex: 1000
+      }}
+    >
       {isOpen ? (
-        <div className="chatbotWindow">
-          <div className="chatbotHeader">
+        <div
+          className="chatbotWindow"
+          style={{
+            width: '350px',
+            height: '500px',
+            backgroundColor: 'white',
+            borderRadius: '10px',
+            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
+            display: 'flex',
+            flexDirection: 'column',
+            overflow: 'hidden'
+          }}
+        >
+          <div
+            className="chatbotHeader"
+            style={{
+              backgroundColor: '#007bff',
+              color: 'white',
+              padding: '10px',
+              textAlign: 'center'
+            }}
+          >
             <h3>RAG Chatbot</h3>
-            <button onClick={toggleChat} className="closeButton">×</button>
+            <button
+              onClick={toggleChat}
+              className="closeButton"
+              style={{
+                background: 'none',
+                border: 'none',
+                fontSize: '24px',
+                cursor: 'pointer',
+                color: 'white',
+                padding: 0,
+                width: '30px',
+                height: '30px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}
+            >
+              ×
+            </button>
           </div>
-          <div className="chatbotMessages">
+          <div
+            className="chatbotMessages"
+            style={{
+              flexGrow: 1,
+              padding: '10px',
+              overflowY: 'auto',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '10px'
+            }}
+          >
             {messages.map((message) => (
               <div
                 key={message.id}
                 className={`message ${message.sender === 'bot' ? 'botMessage' : 'userMessage'}`}
+                style={{
+                  padding: '10px',
+                  borderRadius: '8px',
+                  maxWidth: '80%',
+                  backgroundColor: message.sender === 'bot' ? '#f1f1f1' : '#d1e7ff',
+                  alignSelf: message.sender === 'bot' ? 'flex-start' : 'flex-end'
+                }}
               >
                 {message.text}
               </div>
             ))}
             {isLoading && (
-              <div className="message botMessage">
+              <div
+                className="message botMessage"
+                style={{
+                  padding: '10px',
+                  borderRadius: '8px',
+                  maxWidth: '80%',
+                  backgroundColor: '#f1f1f1',
+                  alignSelf: 'flex-start'
+                }}
+              >
                 Thinking...
               </div>
             )}
           </div>
-          <div className="chatbotInputContainer">
+          <div
+            className="chatbotInputContainer"
+            style={{
+              display: 'flex',
+              padding: '10px',
+              borderTop: '1px solid #ddd'
+            }}
+          >
             <textarea
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               onKeyPress={handleKeyPress}
               placeholder="Ask about the textbook content..."
               rows="2"
+              style={{
+                flexGrow: 1,
+                border: '1px solid #ccc',
+                borderRadius: '5px',
+                padding: '8px',
+                marginRight: '10px'
+              }}
             />
-            <button onClick={sendMessage} disabled={isLoading}>Send</button>
+            <button
+              onClick={sendMessage}
+              disabled={isLoading}
+              style={{
+                backgroundColor: '#007bff',
+                color: 'white',
+                border: 'none',
+                borderRadius: '5px',
+                padding: '8px 12px',
+                cursor: isLoading ? 'not-allowed' : 'pointer'
+              }}
+            >
+              Send
+            </button>
           </div>
         </div>
       ) : (
-        <button className="chatbotToggleButton" onClick={toggleChat}>
+        <button
+          className="chatbotToggleButton"
+          style={{
+            backgroundColor: '#007bff',
+            color: 'white',
+            border: 'none',
+            borderRadius: '50%',
+            width: '60px',
+            height: '60px',
+            fontSize: '16px',
+            cursor: 'pointer',
+            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)'
+          }}
+          onClick={toggleChat}
+        >
           💬 Chat
         </button>
       )}
