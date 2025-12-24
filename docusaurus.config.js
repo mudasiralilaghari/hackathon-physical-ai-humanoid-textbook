@@ -56,6 +56,19 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      // Add the chatbot to all pages using scripts
+      stylesheets: [
+        {
+          href: '/hackathon-physical-ai-humanoid-textbook/chatbot.css',
+          type: 'text/css',
+        },
+      ],
+      scripts: [
+        {
+          src: '/hackathon-physical-ai-humanoid-textbook/chatbot.js',
+          defer: true,
+        },
+      ],
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
