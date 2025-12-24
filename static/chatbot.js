@@ -1,4 +1,4 @@
-// Simple script to add the chatbot to the page
+// Simple script to add the RAG chatbot to the page - Updated
 document.addEventListener('DOMContentLoaded', function() {
   // Create the chatbot container
   const chatbotContainer = document.createElement('div');
