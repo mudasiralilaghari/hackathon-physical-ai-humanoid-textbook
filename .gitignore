@@ -6,4 +6,4 @@ build/
 coverage/
 dist/
 *.log
-.nyc_output/
+.nyc_output/"nul"  
