@@ -36,6 +36,10 @@ class RAGService:
             return self._query_with_openrouter(request)
         else:
             # Fallback to Gemini approach
+            # But check if gemini service is available first
+            if self.gemini_service is None:
+                logger.warning("Gemini service not available, falling back to OpenRouter")
+                return self._query_with_openrouter(request)
             return self._query_with_gemini(request)
 
     def _query_with_gemini(self, request: QueryRequest) -> QueryResponse:
