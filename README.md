@@ -1,47 +1,93 @@
-# Physical AI & Humanoid Robotics
-
-Welcome to the comprehensive university-level textbook on **Physical AI & Humanoid Robotics**. This textbook bridges digital AI to real-world humanoid robotics, preparing students conceptually for ROS 2, simulation, and AI-robot systems.
-
-<!-- Deployment trigger -->
-
-## Table of Contents
-
-### [Module 0: Foundations of Physical AI](./docs/module-0/README.md)
-- [Chapter 0.1: Introduction to Physical AI & Embodied Intelligence](./docs/module-0/chapter-0.1.md)
-- [Chapter 0.2: From Digital AI to Physical AI](./docs/module-0/chapter-0.2.md)
-- [Chapter 0.3: Sensors and Actuators](./docs/module-0/chapter-0.3.md)
-- [Chapter 0.4: Course Roadmap & Toolchain Overview](./docs/module-0/chapter-0.4.md)
-
-### [Module 1: ROS 2 – The Robotic Nervous System](./docs/module-1/README.md)
-- [Chapter 1.1: Introduction to ROS 2 Architecture](./docs/module-1/chapter-1.1.md)
-- [Chapter 1.2: Nodes and Topics](./docs/module-1/chapter-1.2.md)
-- [Chapter 1.3: Services and Actions](./docs/module-1/chapter-1.3.md)
-- [Chapter 1.4: Parameters and Launch Systems](./docs/module-1/chapter-1.4.md)
-- [Chapter 1.5: Debugging and Monitoring ROS 2](./docs/module-1/chapter-1.5.md)
-
-### [Module 2: Digital Twins and Simulation](./docs/module-2/README.md)
-- [Chapter 2.1: Why Simulation Matters](./docs/module-2/chapter-2.1.md)
-- [Chapter 2.2: Gazebo Simulation Fundamentals](./docs/module-2/chapter-2.2.md)
-- [Chapter 2.3: Simulating Sensors](./docs/module-2/chapter-2.3.md)
-- [Chapter 2.4: Unity for Human-Robot Interaction](./docs/module-2/chapter-2.4.md)
-
-### [Module 3: NVIDIA Isaac – The AI Robot Brain](./docs/module-3/README.md)
-- [Chapter 3.1: NVIDIA Isaac Platform Overview](./docs/module-3/chapter-3.1.md)
-- [Chapter 3.2: Perception and Synthetic Data](./docs/module-3/chapter-3.2.md)
-- [Chapter 3.3: Navigation and Motion](./docs/module-3/chapter-3.3.md)
-- [Chapter 3.4: Sim-to-Real Transfer](./docs/module-3/chapter-3.4.md)
-
-### [Module 4: Vision-Language-Action (VLA)](./docs/module-4/README.md)
-- [Chapter 4.1: Voice to Action](./docs/module-4/chapter-4.1.md)
-- [Chapter 4.2: Language-Based Planning](./docs/module-4/chapter-4.2.md)
-- [Chapter 4.3: Capstone – The Autonomous Humanoid](./docs/module-4/chapter-4.3.md)
-
+---
+title: Physical AI & Humanoid Robotics RAG Backend
+emoji: 🤖
+colorFrom: blue
+colorTo: red
+sdk: docker
+app_file: app.py
+pinned: false
 ---
 
-This textbook is designed for students with basic Python knowledge who are beginners in robotics and AI learners transitioning to Physical AI. Each chapter includes:
-- Short introduction
-- Clear explanations with conceptual examples
-- Learning summary
-- Self-assessment questions
+# Physical AI & Humanoid Robotics RAG Backend
 
-The content is structured to be beginner-friendly, clear, and educational without assuming prior robotics knowledge.
+This is the backend service for the Retrieval-Augmented Generation (RAG) chatbot that answers questions about the Physical AI & Humanoid Robotics textbook content. The system uses OpenAI Agents, Cohere embeddings, and Qdrant vector database to provide accurate, context-aware responses.
+
+## Overview
+
+The RAG Chatbot Backend is a FastAPI application that:
+- Accepts user questions and optional selected text as input
+- Retrieves relevant text chunks from Qdrant vector database
+- Generates answers using OpenAI via OpenRouter (cost-effective)
+- Ensures responses are grounded only in retrieved textbook content
+- Automatically indexes all textbook content from the docs/ directory
+- Logs retrieval metrics and performance data
+
+## API Endpoints
+
+- `POST /rag/query` - Process user queries against textbook content
+- `GET /health` - Health check endpoint
+
+### Query Endpoint
+
+Request body:
+```json
+{
+  "question": "Your question about textbook content",
+  "selected_text": "Optional selected text for additional context (can be null)",
+  "query_id": "Optional query ID (auto-generated if not provided)"
+}
+```
+
+Response:
+```json
+{
+  "response": "Generated answer based on retrieved content",
+  "query_id": "Unique query identifier",
+  "retrieval_score": "Average similarity score of retrieved chunks (0.0-1.0)",
+  "chunks_count": "Number of chunks used to generate the response",
+  "timestamp": "ISO 8601 timestamp"
+}
+```
+
+## Configuration
+
+The service is configured through environment variables:
+
+- `OPENROUTER_API_KEY`: OpenRouter API key (required for RAG functionality - cost-effective option)
+- `QDRANT_URL`: Qdrant database URL
+- `QDRANT_API_KEY`: Qdrant API key
+- `QDRANT_COLLECTION_NAME`: Name of the collection to use (default: "textbook-content")
+- `COHERE_API_KEY`: Cohere API key (for embeddings)
+- `USE_OPENROUTER`: Set to "true" to use OpenRouter backend (default: "true" for cost-effective operation)
+- `USE_OPENAI_AGENTS`: Set to "true" to use OpenAI Agents SDK with OpenRouter (default: "false")
+
+## How to Use with the Textbook
+
+This backend powers the chatbot on the [Physical AI & Humanoid Robotics Textbook](https://mudasiralilaghari.github.io/hackathon-physical-ai-humanoid-textbook/). When you ask questions on the textbook site, they are processed by this backend service.
+
+## Environment Variables Setup
+
+To run this service, you need to set up the following secrets in your Hugging Face Space:
+
+1. `OPENROUTER_API_KEY` - Your OpenRouter API key
+2. `COHERE_API_KEY` - Your Cohere API key
+3. `QDRANT_URL` - Your Qdrant database URL
+4. `QDRANT_API_KEY` - Your Qdrant API key (if using cloud version)
+5. `DATABASE_URL` - Your Postgres database URL (optional, for chat history)
+
+## Architecture
+
+The service follows a modular architecture with the following components:
+
+- `app.py`: Hugging Face Space entry point
+- `main.py`: FastAPI application entry point
+- `src/models/`: Data models and Pydantic schemas
+- `src/services/`: Core business logic services
+  - `rag_service.py`: Main orchestration service
+  - `qdrant_service.py`: Vector database integration
+  - `cohere_service.py`: Embedding generation
+  - `openrouter_service.py`: OpenRouter integration
+- `src/agents/`: AI agent implementations
+- `src/api/`: API routes and endpoints
+- `src/utils/`: Utility functions and logging
+- `process_textbook_content.py`: Script to process and index textbook content

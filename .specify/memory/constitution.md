@@ -1,45 +1,55 @@
-<!-- SYNC IMPACT REPORT:
-Version change: N/A -> 1.0.0
-Modified principles: None (new constitution)
-Added sections: All sections (new constitution)
-Removed sections: None
-Templates requiring updates:
-- .specify/templates/plan-template.md ✅ updated
-- .specify/templates/spec-template.md ✅ updated
-- .specify/templates/tasks-template.md ✅ updated
-- .specify/templates/commands/*.md ⚠ pending
-- README.md ⚠ pending
-Follow-up TODOs: None
--->
-# Panaversity Hackathon AI-Native Textbook Constitution
+# [PROJECT_NAME] Constitution
+<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
 
 ## Core Principles
 
-### Spec-Kit Plus Compliance
-All development must strictly follow Spec-Kit Plus methodology with spec-driven development as the mandatory approach. Every feature and change must begin with a clear specification before implementation begins.
+### [PRINCIPLE_1_NAME]
+<!-- Example: I. Library-First -->
+[PRINCIPLE_1_DESCRIPTION]
+<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
 
-### Course Alignment
-All content must align with Physical AI & Humanoid Robotics course objectives, maintaining beginner-friendly explanations while preserving technical accuracy for complex concepts in AI and robotics.
+### [PRINCIPLE_2_NAME]
+<!-- Example: II. CLI Interface -->
+[PRINCIPLE_2_DESCRIPTION]
+<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
 
-### Modular Structure
-Content must follow a clear modular structure with each section designed as an independent module that can be understood individually while connecting cohesively to the broader curriculum.
+### [PRINCIPLE_3_NAME]
+<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
+[PRINCIPLE_3_DESCRIPTION]
+<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
 
-### Markdown-Only Standard
-All content creation and documentation must use Markdown format exclusively to ensure compatibility with Docusaurus publishing platform and maintain simplicity in content management.
+### [PRINCIPLE_4_NAME]
+<!-- Example: IV. Integration Testing -->
+[PRINCIPLE_4_DESCRIPTION]
+<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
 
-### Claude Code Integration
-All textbook development must leverage Claude Code for content creation, review, and maintenance, utilizing AI-assistant capabilities for consistent quality and structure.
+### [PRINCIPLE_5_NAME]
+<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
+[PRINCIPLE_5_DESCRIPTION]
+<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
 
-### Docusaurus Publishing Design
-All content structure, navigation, and formatting must be designed specifically for Docusaurus publishing platform with proper integration of its features and capabilities.
+### [PRINCIPLE_6_NAME]
 
-## Content Standards
-Textbook content must be accessible to beginners while maintaining technical precision. Concepts should be introduced progressively with clear examples, diagrams, and practical applications relevant to humanoid robotics and physical AI systems.
 
-## Development Workflow
-All contributions must follow spec-driven development methodology: specifications created and approved → implementation follows → testing validates adherence to spec. Each module must include learning objectives, content, exercises, and assessments.
+[PRINCIPLE__DESCRIPTION]
+
+## [SECTION_2_NAME]
+<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+
+[SECTION_2_CONTENT]
+<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+
+## [SECTION_3_NAME]
+<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+
+[SECTION_3_CONTENT]
+<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
 
 ## Governance
-This constitution governs all aspects of the textbook development. Any deviations from these principles require formal amendment with documented justification. All contributors must comply with these standards and verify adherence during review processes.
+<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-**Version**: 1.0.0 | **Ratified**: 2025-12-15 | **Last Amended**: 2025-12-15
+[GOVERNANCE_RULES]
+<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+
+**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
+<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
